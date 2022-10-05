@@ -10,7 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81bcea2a37088ee4481e245bbd22f349, type: 3}
-  m_Name: Key Collector
+  m_Name: Collect the cubes
   m_EditorClassIdentifier: 
-  missionName: Key Collector
+  missionName: Collect the cubes
   keys: {fileID: 7122114741230190715, guid: 0fb7ce55ef04eac4ba9643c1c503d536, type: 3}
+  finalKey: {fileID: 7122114741230190715, guid: 10b9e3b207290f141bf87457fbd377ac, type: 3}
+  maxKeys: 3

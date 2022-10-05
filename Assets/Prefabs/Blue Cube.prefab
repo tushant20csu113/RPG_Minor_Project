@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 7679690721512894900}
   - component: {fileID: 4393383574320437380}
   - component: {fileID: 1941931853048974400}
-  - component: {fileID: 621370030780281901}
+  - component: {fileID: 8756890549980793561}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Blue Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a893adb82b429d242adc7788702f0fd8, type: 2}
+  - {fileID: 2100000, guid: 14f568cf921414042bb92d8bcc664a2d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -96,7 +96,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &621370030780281901
+--- !u!114 &8756890549980793561
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,6 +105,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7122114741230190715}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 407f8a3728aec834fbeedbcc507db5c9, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d6c9c80ca2fcce4ca49308c5ee44333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

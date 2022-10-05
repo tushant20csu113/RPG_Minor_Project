@@ -93,9 +93,7 @@ public class LevelGenerator : MonoBehaviour
 
                     var newRoom = Instantiate(rooms[randomRoom].room, new Vector3(i * offset.x, 0, -j * offset.y), Quaternion.identity, transform).GetComponent<RoomBehaviour>();
                     newRoom.UpdateRoom(currentCell.status);
-                    //Debug.Log(newRoom.SpawnPosition());
-                    mObject.ObjectSpawner(newRoom.SpawnPosition());
-                    //ObjectSpawner(newRoom.SpawnPosition());
+                    mObject.ObjectSpawner(newRoom.SpawnPosition(),mObject.missions[0].keys);
                     newRoom.name += " " + i + "-" + j;
 
                 }
@@ -103,11 +101,6 @@ public class LevelGenerator : MonoBehaviour
         }
 
     }
-    void ObjectSpawner(Vector3 pos)
-    {
-        Instantiate(missions[0].keys, pos, Quaternion.identity, transform);
-    }
-
     void MazeGenerator()
     {
         board = new List<Cell>();

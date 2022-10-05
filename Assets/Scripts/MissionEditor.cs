@@ -7,7 +7,10 @@ public class MissionEditor : EditorWindow
 {
     string missionName;
     //GameObject[] keys;
+    GameObject normalKey;
     GameObject finalKey;
+    
+    int maxKeys;
   
     [MenuItem("RPG/Escape Room/Mission Info")]
     static void OpenWindow()
@@ -21,11 +24,13 @@ public class MissionEditor : EditorWindow
         
         GUILayout.Label("This is a mission editor window.");
         missionName = EditorGUILayout.TextField("Mission Name", missionName);
-        finalKey=(GameObject)EditorGUILayout.ObjectField("Keys", finalKey, typeof(GameObject), true);
-       /* for (int i = 0; i < keys.Length; i++)
-        {
-            keys[i] = (GameObject)EditorGUILayout.ObjectField("Keys", keys[i], typeof(GameObject), true);
-        }*/
+        normalKey =(GameObject)EditorGUILayout.ObjectField("Normal Keys", normalKey, typeof(GameObject), true);
+        finalKey = (GameObject)EditorGUILayout.ObjectField("Final Key", finalKey, typeof(GameObject), true);
+        maxKeys=(int)EditorGUILayout.IntField("Number of keys to be collected: ", maxKeys);
+        /* for (int i = 0; i < keys.Length; i++)
+         {
+             keys[i] = (GameObject)EditorGUILayout.ObjectField("Keys", keys[i], typeof(GameObject), true);
+         }*/
         if (GUILayout.Button("Create Mission"))
         {
             MissionData missionData = ScriptableObject.CreateInstance<MissionData>();
@@ -34,7 +39,9 @@ public class MissionEditor : EditorWindow
             {
                 missionData.keys[i] = keys[i];
             }*/
-            missionData.keys = finalKey;
+            missionData.keys = normalKey;
+            missionData.finalKey = finalKey;
+            missionData.maxKeys = maxKeys;
             //car.carImage = carImage;
             AssetDatabase.CreateAsset(missionData, "Assets/Missions/MissionData/" + missionName + ".asset");
             AssetDatabase.SaveAssets();
