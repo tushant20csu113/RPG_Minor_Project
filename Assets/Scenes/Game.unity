@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 321410892}
   - component: {fileID: 321410891}
   m_Layer: 0
-  m_Name: ScoringSystem
+  m_Name: MissionProgress
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

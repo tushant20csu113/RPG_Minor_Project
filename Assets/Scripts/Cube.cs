@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cube : MonoBehaviour,IInteractables
+public class Cube : MonoBehaviour,IInteractable
 {
     private bool isPicked;
     public bool CanInteract()

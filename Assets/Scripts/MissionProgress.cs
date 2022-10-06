@@ -7,18 +7,22 @@ public class MissionProgress : MonoBehaviour
 {
     public TextMeshProUGUI keys;
     public TextMeshProUGUI missionName;
+
     public static int keyCount;
     public static string missionText;
+
     public MissionSystem mObject;
-    bool areKeysCollected;
     public Transform playerPosition;
 
+    bool areKeysCollected;
+
+    //public static MissionProgress Instance { get; private set; }
     // Start is called before the first frame update
     void Start()
     {
         keys.text = "Keys: " + keyCount;
-        missionText = mObject.missions[0].missionName;
-        missionName.text = "Mission: "+missionText;
+        missionText = "Mission: " + mObject.missions[0].missionName;
+        TextUpdater(missionText);
     }
 
     // Update is called once per frame
@@ -26,13 +30,17 @@ public class MissionProgress : MonoBehaviour
     {
         Vector3 playerPos = playerPosition.position;
         keys.text = "Keys: " + keyCount;
+        TextUpdater(missionText);
         if (keyCount== mObject.missions[0].maxKeys && !areKeysCollected)
         {
             areKeysCollected = true;
             keyCount = 0;
-            missionText = "Mission: Collect final key";
-            missionName.text=missionText;
+            missionText="Mission: Collect final key";
             mObject.ObjectSpawner(new Vector3(playerPos.x+2, playerPos.y, playerPos.z+2), mObject.missions[0].finalKey);
         }
+    }
+    public void TextUpdater(string missionText)
+    {
+        missionName.text = missionText;
     }
 }

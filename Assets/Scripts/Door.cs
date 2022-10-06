@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : MonoBehaviour,IInteractables
+public class Door : MonoBehaviour,IInteractable
 {
     private bool isDoorOpen;
     private Animator doorAnimator;
