@@ -16,8 +16,8 @@ public class FinalCube : MonoBehaviour,IInteractable
         MissionProgress.Instance.TextUpdater("Mission Passed");
         Destroy(gameObject);    
     }
-    public string objectType()
+    public ObjectType Type()
     {
-        return "Key";
+        return ObjectType.KEY;
     }
 }

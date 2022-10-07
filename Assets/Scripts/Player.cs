@@ -79,7 +79,7 @@ public class Player : MonoBehaviour
             if (interactable != null)
             {
                 interactable.Interact();
-                if(interactable.objectType()=="Key")
+                if(interactable.Type()==ObjectType.KEY)
                    keyPickUp("KeyPicked");
             }
         }

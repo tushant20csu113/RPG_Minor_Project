@@ -15,8 +15,8 @@ public class Cube : MonoBehaviour, IInteractable
         isPicked = true;
         Destroy(gameObject);
     }
-    public string objectType()
+    public ObjectType Type()
     {
-         return "Key";
+         return ObjectType.KEY ;
     }
 }
