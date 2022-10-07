@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cube : MonoBehaviour,IInteractable
+public class Cube : MonoBehaviour, IInteractable
 {
     private bool isPicked;
     public bool CanInteract()
@@ -13,9 +13,10 @@ public class Cube : MonoBehaviour,IInteractable
     public void Interact()
     {
         isPicked = true;
-        MissionProgress.keyCount++;
         Destroy(gameObject);
-        
-        //Debug.Log("Normal Cube picked");
+    }
+    public string objectType()
+    {
+         return "Key";
     }
 }

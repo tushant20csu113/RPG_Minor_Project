@@ -22,4 +22,8 @@ public class Door : MonoBehaviour,IInteractable
         isDoorOpen = true;
         doorAnimator.SetTrigger("OpenDoor");
     }
+    public string objectType()
+    {
+        return "Door";
+    }
 }

@@ -42,7 +42,6 @@ public class MissionEditor : EditorWindow
             missionData.keys = normalKey;
             missionData.finalKey = finalKey;
             missionData.maxKeys = maxKeys;
-            //car.carImage = carImage;
             AssetDatabase.CreateAsset(missionData, "Assets/Missions/MissionData/" + missionName + ".asset");
             AssetDatabase.SaveAssets();
         }

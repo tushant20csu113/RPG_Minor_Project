@@ -13,8 +13,11 @@ public class FinalCube : MonoBehaviour,IInteractable
     public void Interact()
     {
         isPicked = true;
-        MissionProgress.keyCount++;
-        MissionProgress.missionText = "Mission Passed";
+        MissionProgress.Instance.TextUpdater("Mission Passed");
         Destroy(gameObject);    
+    }
+    public string objectType()
+    {
+        return "Key";
     }
 }

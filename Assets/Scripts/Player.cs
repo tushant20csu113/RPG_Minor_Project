@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class Player : MonoBehaviour
 {
     [SerializeField]
@@ -19,6 +19,13 @@ public class Player : MonoBehaviour
     private bool isRunning;
     private bool isRunningBackward;
     Camera cam;
+
+    public static event Action<string> keyPickUp = delegate { };
+    public static Player Instance { get;private set;}
+    private void Awake()
+    {
+        Instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -72,6 +79,8 @@ public class Player : MonoBehaviour
             if (interactable != null)
             {
                 interactable.Interact();
+                if(interactable.objectType()=="Key")
+                   keyPickUp("KeyPicked");
             }
         }
 
