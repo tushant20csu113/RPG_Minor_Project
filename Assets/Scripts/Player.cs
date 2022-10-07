@@ -85,4 +85,18 @@ public class Player : MonoBehaviour
         }
 
     }
+    public void SavePlayer()
+    {
+        SaveSystem.SavePlayer(this);
+    }
+    public void LoadPlayer()
+    {
+        PlayerData data=SaveSystem.LoadPlayer();
+        Vector3 position;
+        position.x = data.Position[0];
+        position.y = data.Position[1];
+        position.z = data.Position[2];
+        transform.position = position;
+
+    }
 }

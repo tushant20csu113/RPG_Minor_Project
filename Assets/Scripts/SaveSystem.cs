@@ -7,31 +7,49 @@ public static class SaveSystem
 
     public static void SavePlayer(Player player)
     {
-        BinaryFormatter formatter = new BinaryFormatter();
         FileStream stream = new FileStream(path, FileMode.Create);
+        BinaryWriter writer = new BinaryWriter(stream);
 
         PlayerData data = PlayerData.FromPlayer(player);
 
-        formatter.Serialize(stream, data);
+        if (data.Position == null)
+        {
+            writer.Write(0);
+        }
+        else
+        {
+            writer.Write(data.Position.Length);
+            foreach (var value in data.Position)
+            {
+                writer.Write(value);
+            }
+        }
+
         stream.Close();
     }
 
     public static PlayerData LoadPlayer()
     {
-        if (File.Exists(path))
-        {
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
-
-            PlayerData data = formatter.Deserialize(stream) as PlayerData;
-            stream.Close();
-
-            return data;
-        }
-        else
+        if (!File.Exists(path))
         {
             Debug.LogError("Save file not found in " + path);
             return null;
         }
+
+        FileStream stream = new FileStream(path, FileMode.Open);
+        BinaryReader reader = new BinaryReader(stream);
+
+        PlayerData data = new PlayerData();
+
+        int length = reader.ReadInt32();
+        data.Position = new float[length];
+        for (int index = 0; index < length; index++)
+        {
+            data.Position[index] = reader.ReadSingle();
+        }
+
+        stream.Close();
+
+        return data;
     }
 }
